@@ -1,0 +1,12 @@
+development: &development
+  adapter: mysql2
+  database: CerberusDB
+  username: cerberus
+  password: cerberus
+  host: 127.0.0.1
+  port: 3306
+  timeout: 5000
+
+test:
+  <<: *development
+  database: CerberusDB_UT

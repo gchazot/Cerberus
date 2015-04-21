@@ -1,0 +1,22 @@
+<%= javascript_include_tag 'application' %>
+
+<script type="text/javascript"> 
+    $(document).ready(function() { 
+            $.blockUI(
+				{ 
+					name: "loading_block",
+					message: '<div style="width:640px;align:center"><br /><h1>Authentication<br />has failed</h1><small>Please close your browser to clean session and try again !</small><br /><br />&nbsp;</div>',
+					css: { 
+			            border: 'none', 
+			            padding: '0px', 
+			            'background-color':'#FFF',
+			            '-webkit-border-radius': '10px', 
+			            '-moz-border-radius': '10px', 
+			            opacity: .8, 
+			            color: '#0068B1',
+			            width: '600px;'
+			            }
+				}
+			); 
+    }); 
+</script>

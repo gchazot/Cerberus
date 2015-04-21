@@ -1,0 +1,20 @@
+<div class="field">
+  <label for="client_application_name"><%=ClientApplication.attribute_text_label(:name)%>*</label><br/>
+  <%= f.text_field :name %>
+</div>
+<div class="field">
+  <label for="client_application_url"><%=ClientApplication.attribute_text_label(:url)%>*</label><br/>
+  <%= f.text_field :url %>
+</div>
+<div class="field">
+  <label for="client_application_callback_url"><%=ClientApplication.attribute_text_label(:callback_url)%>*</label><br/>
+  <%= f.text_field :callback_url %>
+</div>
+<div class="field">
+  <label for="client_application_support_url"><%=ClientApplication.attribute_text_label(:support_url)%></label><br/>
+  <%= f.text_field :support_url %>
+</div>
+<div class="field">
+  <label for="client_application_poc"><%=ClientApplication.attribute_text_label(:poc)%>* <font size="-2">(Responsible of the application)</font></label><br/>
+  <%= f.text_field :poc %>
+</div>

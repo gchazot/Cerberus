@@ -1,0 +1,39 @@
+
+	<h1>List of registered applications</h1>
+	<% if current_user.has_a_role_of("admin") -%>
+		<h3><%= link_to "Register a new application", :action => :new %></h3>	
+		<% if @client_applications.empty? %>
+		  <p>
+		    You must register a web application before it can make OAuth requests to this service
+		  </p>
+		<% end %>
+	<% end %>	
+	
+	<br />
+	<table class="table table-striped">
+	  <tr>
+	  	<th>Application</th>
+	  	<th>Registered on</th>
+	  	<% if current_user.has_a_role_of("admin") -%>
+	  	  	<th><%=ClientApplication.attribute_text_label(:poc)%></th>
+		  	<th>Actions</th>
+		 <% end %>
+	  </tr>
+	  <% @all_client_applications.each do |client|%>
+	    <tr>
+	      <td><%= link_to client.name, client.url %></td>
+	      <td><%= client.created_at %></td>
+	      <% if current_user.has_a_role_of("admin") -%>
+	        <td><%=client.poc%></td>
+		  	<td>
+			  <div>
+			    <%= link_to 'Show', oauth_client_path(client) %> -
+			    <%= link_to 'Edit', edit_oauth_client_path(client) %> -
+			    <%= link_to 'Delete', oauth_client_path(client), :confirm => "Are you sure?", :method => :delete %>
+			  </div>  	
+		  	</td>
+		 <% end %>
+	    </tr>
+	  <% end %>
+	
+	</table>

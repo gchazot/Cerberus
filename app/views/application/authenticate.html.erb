@@ -1,0 +1,38 @@
+<%= javascript_include_tag 'application' %>
+
+<script type="text/javascript"> 
+    $(document).ready(function() { 
+            $.blockUI(
+				{ 
+					name: "loading_block",
+					message: '<div style="float:left;width:220px;align:center"><br /><%= image_tag("ajax_loading.gif", :width=>150) %></div><div style="float:right;width:275px;align:center"><br /><h1>Authentication<br />on going</h1><small>You will be automatically redirected...</small><br /><br />&nbsp;</div>',
+					css: { 
+			            border: 'none', 
+			            padding: '0px', 
+			            'background-color':'#FFF',
+			            '-webkit-border-radius': '10px', 
+			            '-moz-border-radius': '10px', 
+			            opacity: .8, 
+			            color: '#0068B1',
+			            width: '600px;'
+			            
+			            }
+				}
+			); 
+    }); 
+
+var request = $.ajax({
+  url: "/#{BASE_URL}/authenticate_user?<%=@query%>",
+  type: "GET",
+  dataType: "html"
+});
+
+request.done(function(redirect_uri) {
+  document.location.href = redirect_uri;
+});
+ 
+request.fail(function(jqXHR, textStatus) {
+  alert( "Authentication has failed: " + textStatus );
+});
+
+</script>

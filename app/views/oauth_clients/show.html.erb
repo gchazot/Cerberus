@@ -1,0 +1,37 @@
+<h1>Application : <%=@client_application.name %></h1>
+<br>
+<h2>Application Details</h2>
+<table>
+<% [ :name, :url, :callback_url, :support_url, :poc ].each do |attr| %>
+  <tr>
+  <td><strong><%=ClientApplication.attribute_text_label(attr)%> : </strong></td>
+  <td><code><%=@client_application.send(attr)%></code></td>
+  </tr>
+<% end %>
+</table>
+<br>
+<h2>OAuth Details</h2>
+<p>Information to communicate by mail to responsible of the application (<%=@client_application.poc%>, see POC above).</p>
+<table> 
+<% [ :key, :secret ].each do |attr| %>
+  <tr>
+  <td><strong><%=ClientApplication.attribute_text_label(attr)%> : </strong></td>
+  <td><code><%=@client_application.send(attr) %></code></td>
+  </tr>
+<% end %>
+<tr>
+<td><strong>Request Token URL : </strong></td>
+<td><code>http<%='s' if request.ssl? %>://<%= request.host_with_port %><%=@client_application.oauth_server.request_token_path.gsub("/oauth/","/#{BASE_URL}/oauth/").gsub("request_","") %></code></td>
+</tr>
+<tr>
+<td><strong>Access Token URL : </strong></td>
+<td><code>http<%='s' if request.ssl? %>://<%= request.host_with_port %><%=@client_application.oauth_server.access_token_path.gsub("/oauth/","/#{BASE_URL}/oauth/") %></code></td>
+</tr>
+<tr>
+<td><strong>Authorize URL : </strong></td>
+<td><code>http<%='s' if request.ssl? %>://<%= request.host_with_port %><%=@client_application.oauth_server.authorize_path.gsub("/oauth/","/#{BASE_URL}/oauth/") %></code></td>
+</tr>
+</table>
+<br><p>NOTE : We support hmac-sha1 (recommended) as well as plain text in ssl mode.</p>
+<%= link_to 'Edit', edit_oauth_client_path(@client_application) %> |
+<%= link_to 'Back', oauth_clients_path %>

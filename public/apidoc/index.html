@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <link href='prettify.css' rel='stylesheet' type='text/css'>
+    <link href='styles.css' rel='stylesheet' type='text/css'>
+    <title>App Name - API doc</title>
+  </head>
+  <body>
+    <div class='clearfix' id='header'>
+      <span class='active' id='app-name'>
+        <a href='#'>API Doc</a>
+      </span>
+      <span id='api-version'>Updated at: 2015-04-21 16:26:19 UTC</span>
+    </div>
+    <div class='clearfix' id='wrapper'>
+      <div class='blue' id='resource_index'>
+        <form onsubmit='return false;'>
+          <div class='search-container'>
+            <input class='search-input' placeholder='Search' type='text'>
+          </div>
+        </form>
+        <h3>Resources</h3>
+        <ul id='api-navigation'>
+          <li class='resource-container'>
+            <span class='resource-name-container'>
+              <a class='resource-name' href='#api/user'>api/user</a>
+            </span>
+            <ul>
+              <li>
+                <span class='api-endpoint-container'>
+                  <a class='api-endpoint' href='#api/user_method_1'>
+                    /api/user.info.[:format]
+                  </a>
+                </span>
+              </li>
+              <li>
+                <span class='api-endpoint-container'>
+                  <a class='api-endpoint' href='#api/user_method_2'>
+                    /api/user.name.[:format]
+                  </a>
+                </span>
+              </li>
+              <li>
+                <span class='api-endpoint-container'>
+                  <a class='api-endpoint' href='#api/user_method_3'>
+                    /api/user.login.[:format]
+                  </a>
+                </span>
+              </li>
+              <li>
+                <span class='api-endpoint-container'>
+                  <a class='api-endpoint' href='#api/user_method_4'>
+                    /api/user.email.[:format]
+                  </a>
+                </span>
+              </li>
+              <li>
+                <span class='api-endpoint-container'>
+                  <a class='api-endpoint' href='#api/user_method_5'>
+                    /api/user.firstname.[:format]
+                  </a>
+                </span>
+              </li>
+              <li>
+                <span class='api-endpoint-container'>
+                  <a class='api-endpoint' href='#api/user_method_6'>
+                    /api/user.lastname.[:format]
+                  </a>
+                </span>
+              </li>
+              <li>
+                <span class='api-endpoint-container'>
+                  <a class='api-endpoint' href='#api/user_method_7'>
+                    /api/user.groups.[:format]
+                  </a>
+                </span>
+              </li>
+              <li>
+                <span class='api-endpoint-container'>
+                  <a class='api-endpoint' href='#api/user_method_8'>
+                    /api/user.belongs_to_group.[:format]?group_name=value
+                  </a>
+                </span>
+              </li>
+              <li>
+                <span class='api-endpoint-container'>
+                  <a class='api-endpoint' href='#api/user_method_9'>
+                    /api/user.all_info.[:format]
+                  </a>
+                </span>
+              </li>
+            </ul>
+          </li>
+          <li class='resource-container'>
+            <span class='resource-name-container'>
+              <a class='resource-name' href='#api/users'>api/users</a>
+            </span>
+            <ul>
+              <li>
+                <span class='api-endpoint-container'>
+                  <a class='api-endpoint' href='#api/users_method_1'>
+                    /api/users/:name.[:format]
+                  </a>
+                </span>
+              </li>
+              <li>
+                <span class='api-endpoint-container'>
+                  <a class='api-endpoint' href='#api/users_method_2'>
+                    /api/users/:name/belongs_to_group.[:format]?group_name=value
+                  </a>
+                </span>
+              </li>
+              <li>
+                <span class='api-endpoint-container'>
+                  <a class='api-endpoint' href='#api/users_method_3'>
+                    /api/users/groups.[:format]
+                  </a>
+                </span>
+              </li>
+              <li>
+                <span class='api-endpoint-container'>
+                  <a class='api-endpoint' href='#api/users_method_4'>
+                    /api/users/:name/get_devserver.[:format]
+                  </a>
+                </span>
+              </li>
+              <li>
+                <span class='api-endpoint-container'>
+                  <a class='api-endpoint' href='#api/users_method_5'>
+                    /api/users/:name/all_info.[:format]
+                  </a>
+                </span>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div id='resources'>
+        <a id='api/user'></a>
+        <div class='resource'>
+          
+          <div class='resource_methods'>
+            <a id='api/user_method_1'></a>
+            <h2 class='api-name'></h2>
+            <h2 class='api-url blue'>GET /api/user.info.[:format]</h2>
+            <p class='description'>
+              <strong>Description:</strong>
+              This service gives all available information about the authenticated user
+            </p>
+            <strong>Access:</strong>
+            PROTECTED
+            <br>
+            <strong>Return:</strong>
+            [JSON|XML]
+            <br>
+            <strong>Parameters:</strong>
+            <ul>
+            </ul>
+            <strong>Request:</strong>
+            <pre>/api/user.info.json?access_token=your_personal_access_token</pre>
+            <strong>Response Output:</strong>
+            <ul class='output_format'>
+              <li class='json output-format'>
+                <a href='#api/user_json_1'>json</a>
+              </li>
+            </ul>
+            <div class='output'>
+              <div class='json'>
+                <a id='api/user_json_1'></a>
+                <pre class='prettyprint'>{ &quot;name&quot;:&quot;Chuck NORRIS&quot;,&quot;firstname&quot;:&quot;Chuck&quot;,&quot;lastname&quot;:&quot;Norris&quot;,&quot;login&quot;:&quot;cnorris&quot;,&quot;email&quot;:&quot;cnorris@not-cerberus.com&quot;}</pre>
+              </div>
+            </div>
+            <br>
+          </div>
+          <div class='resource_methods'>
+            <a id='api/user_method_2'></a>
+            <h2 class='api-name'></h2>
+            <h2 class='api-url blue'>GET /api/user.name.[:format]</h2>
+            <p class='description'>
+              <strong>Description:</strong>
+              This service gives the full name of the authenticated user
+            </p>
+            <strong>Access:</strong>
+            PROTECTED
+            <br>
+            <strong>Return:</strong>
+            [JSON|XML]
+            <br>
+            <strong>Parameters:</strong>
+            <ul>
+            </ul>
+            <strong>Request:</strong>
+            <pre>/api/user.name.json?access_token=your_personal_access_token</pre>
+            <strong>Response Output:</strong>
+            <ul class='output_format'>
+              <li class='json output-format'>
+                <a href='#api/user_json_2'>json</a>
+              </li>
+            </ul>
+            <div class='output'>
+              <div class='json'>
+                <a id='api/user_json_2'></a>
+                <pre class='prettyprint'>{ &quot;name&quot;:&quot;Chuck NORRIS&quot;}</pre>
+              </div>
+            </div>
+            <br>
+          </div>
+          <div class='resource_methods'>
+            <a id='api/user_method_3'></a>
+            <h2 class='api-name'></h2>
+            <h2 class='api-url blue'>GET /api/user.login.[:format]</h2>
+            <p class='description'>
+              <strong>Description:</strong>
+              This service gives the login of the authenticated user
+            </p>
+            <strong>Access:</strong>
+            PROTECTED
+            <br>
+            <strong>Return:</strong>
+            [JSON|XML]
+            <br>
+            <strong>Parameters:</strong>
+            <ul>
+            </ul>
+            <strong>Request:</strong>
+            <pre>/api/user.login.json?access_token=your_personal_access_token</pre>
+            <strong>Response Output:</strong>
+            <ul class='output_format'>
+              <li class='json output-format'>
+                <a href='#api/user_json_3'>json</a>
+              </li>
+            </ul>
+            <div class='output'>
+              <div class='json'>
+                <a id='api/user_json_3'></a>
+                <pre class='prettyprint'>{ &quot;login&quot;:&quot;cnorris&quot;}</pre>
+              </div>
+            </div>
+            <br>
+          </div>
+          <div class='resource_methods'>
+            <a id='api/user_method_4'></a>
+            <h2 class='api-name'></h2>
+            <h2 class='api-url blue'>GET /api/user.email.[:format]</h2>
+            <p class='description'>
+              <strong>Description:</strong>
+              This service gives the email of the authenticated user
+            </p>
+            <strong>Access:</strong>
+            PROTECTED
+            <br>
+            <strong>Return:</strong>
+            [JSON|XML]
+            <br>
+            <strong>Parameters:</strong>
+            <ul>
+            </ul>
+            <strong>Request:</strong>
+            <pre>/api/user.email.json?access_token=your_personal_access_token</pre>
+            <strong>Response Output:</strong>
+            <ul class='output_format'>
+              <li class='json output-format'>
+                <a href='#api/user_json_4'>json</a>
+              </li>
+            </ul>
+            <div class='output'>
+              <div class='json'>
+                <a id='api/user_json_4'></a>
+                <pre class='prettyprint'>{ &quot;email&quot;:&quot;cnorris@not-cerberus.com&quot;}</pre>
+              </div>
+            </div>
+            <br>
+          </div>
+          <div class='resource_methods'>
+            <a id='api/user_method_5'></a>
+            <h2 class='api-name'></h2>
+            <h2 class='api-url blue'>GET /api/user.firstname.[:format]</h2>
+            <p class='description'>
+              <strong>Description:</strong>
+              This service gives the firstname of the authenticated user
+            </p>
+            <strong>Access:</strong>
+            PROTECTED
+            <br>
+            <strong>Return:</strong>
+            [JSON|XML]
+            <br>
+            <strong>Parameters:</strong>
+            <ul>
+            </ul>
+            <strong>Request:</strong>
+            <pre>/api/user.firstname.json?access_token=your_personal_access_token</pre>
+            <strong>Response Output:</strong>
+            <ul class='output_format'>
+              <li class='json output-format'>
+                <a href='#api/user_json_5'>json</a>
+              </li>
+            </ul>
+            <div class='output'>
+              <div class='json'>
+                <a id='api/user_json_5'></a>
+                <pre class='prettyprint'>{ &quot;firstname&quot;:&quot;Chuck&quot;}</pre>
+              </div>
+            </div>
+            <br>
+          </div>
+          <div class='resource_methods'>
+            <a id='api/user_method_6'></a>
+            <h2 class='api-name'></h2>
+            <h2 class='api-url blue'>GET /api/user.lastname.[:format]</h2>
+            <p class='description'>
+              <strong>Description:</strong>
+              This service gives the lastname of the authenticated user
+            </p>
+            <strong>Access:</strong>
+            PROTECTED
+            <br>
+            <strong>Return:</strong>
+            [JSON|XML]
+            <br>
+            <strong>Parameters:</strong>
+            <ul>
+            </ul>
+            <strong>Request:</strong>
+            <pre>/api/user.lastname.json?access_token=your_personal_access_token</pre>
+            <strong>Response Output:</strong>
+            <ul class='output_format'>
+              <li class='json output-format'>
+                <a href='#api/user_json_6'>json</a>
+              </li>
+            </ul>
+            <div class='output'>
+              <div class='json'>
+                <a id='api/user_json_6'></a>
+                <pre class='prettyprint'>{ &quot;lastname&quot;:&quot;Norris&quot;}</pre>
+              </div>
+            </div>
+            <br>
+          </div>
+          <div class='resource_methods'>
+            <a id='api/user_method_7'></a>
+            <h2 class='api-name'></h2>
+            <h2 class='api-url blue'>GET /api/user.groups.[:format]</h2>
+            <p class='description'>
+              <strong>Description:</strong>
+              This service gives the groups of the authenticated user. This request can take several seconds as it needs to find group recursively !
+            </p>
+            <strong>Access:</strong>
+            PROTECTED
+            <br>
+            <strong>Return:</strong>
+            [JSON|XML]
+            <br>
+            <strong>Parameters:</strong>
+            <ul>
+            </ul>
+            <strong>Request:</strong>
+            <pre>/api/user.groups.json?access_token=your_personal_access_token</pre>
+            <strong>Response Output:</strong>
+            <ul class='output_format'>
+              <li class='json output-format'>
+                <a href='#api/user_json_7'>json</a>
+              </li>
+            </ul>
+            <div class='output'>
+              <div class='json'>
+                <a id='api/user_json_7'></a>
+                <pre class='prettyprint'>{&quot;groups&quot;:[&quot;cerberus_USERS&quot;,&quot;Func-DEV-PSP&quot;]}</pre>
+              </div>
+            </div>
+            <br>
+          </div>
+          <div class='resource_methods'>
+            <a id='api/user_method_8'></a>
+            <h2 class='api-name'></h2>
+            <h2 class='api-url blue'>GET /api/user.belongs_to_group.[:format]?group_name=value</h2>
+            <p class='description'>
+              <strong>Description:</strong>
+              This service indicates if the authenticated user belongs to a specific group
+            </p>
+            <strong>Access:</strong>
+            PROTECTED
+            <br>
+            <strong>Return:</strong>
+            [JSON|XML]
+            <br>
+            <strong>Parameters:</strong>
+            <ul>
+              <li>group_name:string - the searched group name</li>
+            </ul>
+            <strong>Request:</strong>
+            <pre>/api/user.belongs_to_group.json?group_name=cerberus_USERS&access_token=your_personal_access_token</pre>
+            <strong>Response Output:</strong>
+            <ul class='output_format'>
+              <li class='json output-format'>
+                <a href='#api/user_json_8'>json</a>
+              </li>
+            </ul>
+            <div class='output'>
+              <div class='json'>
+                <a id='api/user_json_8'></a>
+                <pre class='prettyprint'>{&quot;result&quot;:true}</pre>
+              </div>
+            </div>
+            <br>
+          </div>
+          <div class='resource_methods'>
+            <a id='api/user_method_9'></a>
+            <h2 class='api-name'></h2>
+            <h2 class='api-url blue'>GET /api/user.all_info.[:format]</h2>
+            <p class='description'>
+              <strong>Description:</strong>
+              This service gives all available information about the authenticated user
+            </p>
+            <strong>Access:</strong>
+            PROTECTED
+            <br>
+            <strong>Return:</strong>
+            [JSON|XML]
+            <br>
+            <strong>Parameters:</strong>
+            <ul>
+            </ul>
+            <strong>Request:</strong>
+            <pre>/api/user.all_info.json?access_token=your_personal_access_token</pre>
+            <strong>Response Output:</strong>
+            <ul class='output_format'>
+              <li class='json output-format'>
+                <a href='#api/user_json_9'>json</a>
+              </li>
+            </ul>
+            <div class='output'>
+              <div class='json'>
+                <a id='api/user_json_9'></a>
+                <pre class='prettyprint'>{&quot;email&quot;: &quot;cnorris@not-cerberus.com&quot;,&quot;name&quot;: &quot;Chuck NORRIS&quot;,&quot;firstname&quot;: &quot;Chuck&quot;,&quot;lastname&quot;: &quot;Norris&quot;,&quot;country&quot;: &quot;France&quot;,&quot;location&quot;: &quot;City&quot;,&quot;description&quot;: &quot;Dev. &amp; Tools Environment&quot;,&quot;postalcode&quot;: &quot;01111&quot;,&quot;office&quot;: &quot;VB112&quot;,&quot;phone&quot;: &quot;+33 1 2345 6789&quot;,&quot;created_at&quot;: &quot;20121026141649.0Z&quot;,&quot;updated_at&quot;: &quot;20130801061114.0Z&quot;,&quot;department&quot;: &quot;R&amp;D-CERBERUS&quot;,&quot;company&quot;: &quot;cerberus sas&quot;,&quot;streetaddress&quot;: &quot;cerberus adress&quot;,&quot;contract&quot;: &quot;CDI&quot;}</pre>
+              </div>
+            </div>
+            <br>
+          </div>
+        </div>
+        <a id='api/users'></a>
+        <div class='resource'>
+          
+          <div class='resource_methods'>
+            <a id='api/users_method_1'></a>
+            <h2 class='api-name'></h2>
+            <h2 class='api-url blue'>GET /api/users/:name.[:format]</h2>
+            <p class='description'>
+              <strong>Description:</strong>
+              This service gives all available information on a user specified in parameter
+            </p>
+            <strong>Access:</strong>
+            FREE
+            <br>
+            <strong>Return:</strong>
+            [JSON|XML]
+            <br>
+            <strong>Parameters:</strong>
+            <ul>
+              <li>name:string - login or name of the user</li>
+            </ul>
+            <strong>Request:</strong>
+            <pre>/api/users/cnorris.json</pre>
+            <strong>Response Output:</strong>
+            <ul class='output_format'>
+              <li class='json output-format'>
+                <a href='#api/users_json_1'>json</a>
+              </li>
+            </ul>
+            <div class='output'>
+              <div class='json'>
+                <a id='api/users_json_1'></a>
+                <pre class='prettyprint'>{ &quot;name&quot;:&quot;Chuck NORRIS&quot;,&quot;firstname&quot;:&quot;Chuck&quot;,&quot;lastname&quot;:&quot;Norris&quot;,&quot;login&quot;:&quot;cnorris&quot;,&quot;email&quot;:&quot;cnorris@not-cerberus.com&quot;}</pre>
+              </div>
+            </div>
+            <br>
+          </div>
+          <div class='resource_methods'>
+            <a id='api/users_method_2'></a>
+            <h2 class='api-name'></h2>
+            <h2 class='api-url blue'>GET /api/users/:name/belongs_to_group.[:format]?group_name=value</h2>
+            <p class='description'>
+              <strong>Description:</strong>
+              This service indicates if a specified user belongs to a specific group
+            </p>
+            <strong>Access:</strong>
+            FREE
+            <br>
+            <strong>Return:</strong>
+            [JSON|XML]
+            <br>
+            <strong>Parameters:</strong>
+            <ul>
+              <li>name:string - login of the user</li>
+              <li>group_name:string - the searched group name</li>
+            </ul>
+            <strong>Request:</strong>
+            <pre>/api/users/cnorris/belongs_to_group.json?group_name=cerberus_USERS</pre>
+            <strong>Response Output:</strong>
+            <ul class='output_format'>
+              <li class='json output-format'>
+                <a href='#api/users_json_2'>json</a>
+              </li>
+            </ul>
+            <div class='output'>
+              <div class='json'>
+                <a id='api/users_json_2'></a>
+                <pre class='prettyprint'>{&quot;result&quot;:false|true}</pre>
+              </div>
+            </div>
+            <br>
+          </div>
+          <div class='resource_methods'>
+            <a id='api/users_method_3'></a>
+            <h2 class='api-name'></h2>
+            <h2 class='api-url blue'>GET /api/users/groups.[:format]</h2>
+            <p class='description'>
+              <strong>Description:</strong>
+              This service gives the groups of the authenticated user. This request can take several seconds as it needs to find group recursively !
+            </p>
+            <strong>Access:</strong>
+            PROTECTED
+            <br>
+            <strong>Return:</strong>
+            [JSON|XML]
+            <br>
+            <strong>Parameters:</strong>
+            <ul>
+            </ul>
+            <strong>Request:</strong>
+            <pre>/api/user/groups.json</pre>
+            <strong>Response Output:</strong>
+            <ul class='output_format'>
+              <li class='json output-format'>
+                <a href='#api/users_json_3'>json</a>
+              </li>
+            </ul>
+            <div class='output'>
+              <div class='json'>
+                <a id='api/users_json_3'></a>
+                <pre class='prettyprint'>{&quot;groups&quot;:[&quot;cerberus_USERS&quot;,&quot;Func-DEV-PSP&quot;]}</pre>
+              </div>
+            </div>
+            <br>
+          </div>
+          <div class='resource_methods'>
+            <a id='api/users_method_4'></a>
+            <h2 class='api-name'></h2>
+            <h2 class='api-url blue'>GET /api/users/:name/get_devserver.[:format]</h2>
+            <p class='description'>
+              <strong>Description:</strong>
+              This service returns the devserver name associated to a user
+            </p>
+            <strong>Access:</strong>
+            FREE
+            <br>
+            <strong>Return:</strong>
+            [JSON|XML]
+            <br>
+            <strong>Parameters:</strong>
+            <ul>
+              <li>name:string - login of the user</li>
+            </ul>
+            <strong>Request:</strong>
+            <pre>/api/users/cnorris/get_devserver.json</pre>
+            <strong>Response Output:</strong>
+            <ul class='output_format'>
+              <li class='json output-format'>
+                <a href='#api/users_json_4'>json</a>
+              </li>
+            </ul>
+            <div class='output'>
+              <div class='json'>
+                <a id='api/users_json_4'></a>
+                <pre class='prettyprint'>{&quot;name&quot;:&quot;ncepspdevxx&quot;}</pre>
+              </div>
+            </div>
+            <br>
+          </div>
+          <div class='resource_methods'>
+            <a id='api/users_method_5'></a>
+            <h2 class='api-name'></h2>
+            <h2 class='api-url blue'>GET /api/users/:name/all_info.[:format]</h2>
+            <p class='description'>
+              <strong>Description:</strong>
+              This service gives all available information about the authenticated user
+            </p>
+            <strong>Access:</strong>
+            PROTECTED
+            <br>
+            <strong>Return:</strong>
+            [JSON|XML]
+            <br>
+            <strong>Parameters:</strong>
+            <ul>
+            </ul>
+            <strong>Request:</strong>
+            <pre>/api/users/:name/all_info.json</pre>
+            <strong>Response Output:</strong>
+            <ul class='output_format'>
+              <li class='json output-format'>
+                <a href='#api/users_json_5'>json</a>
+              </li>
+            </ul>
+            <div class='output'>
+              <div class='json'>
+                <a id='api/users_json_5'></a>
+                <pre class='prettyprint'>{&quot;email&quot;: &quot;cnorris@not-cerberus.com&quot;,&quot;name&quot;: &quot;Chuck NORRIS&quot;,&quot;firstname&quot;: &quot;Chuck&quot;,&quot;lastname&quot;: &quot;Norris&quot;,&quot;country&quot;: &quot;France&quot;,&quot;location&quot;: &quot;City&quot;,&quot;description&quot;: &quot;Dev. &amp; Tools Environment&quot;,&quot;postalcode&quot;: &quot;01111&quot;,&quot;office&quot;: &quot;VB112&quot;,&quot;phone&quot;: &quot;+33 1 2345 6789&quot;,&quot;created_at&quot;: &quot;20121026141649.0Z&quot;,&quot;updated_at&quot;: &quot;20130801061114.0Z&quot;,&quot;department&quot;: &quot;R&amp;D-CERBERUS&quot;,&quot;company&quot;: &quot;cerberus sas&quot;,&quot;streetaddress&quot;: &quot;cerberus adress&quot;,&quot;contract&quot;: &quot;CDI&quot;}</pre>
+              </div>
+            </div>
+            <br>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js' type='text/javascript'></script>
+    <script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js' type='text/javascript'></script>
+    <script src='scripts.js' type='text/javascript'></script>
+    <script src='prettify.js' type='text/javascript'></script>
+    <script src='beautify.js' type='text/javascript'></script>
+  </body>
+</html>

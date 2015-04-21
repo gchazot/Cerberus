@@ -1,0 +1,62 @@
+default: &default
+  ldap_mapping :
+    dn_attribute: samaccountname
+    prefix: ""
+    classes: ["user"]
+
+  ldap_user_wished_fields: 
+    mail: email
+    cn: name
+    givenname: firstname
+    sn: lastname
+    co: country
+    l: location
+    description: description
+    postalcode: postalcode
+    physicaldeliveryofficename: office
+    telephonenumber: phone
+    whencreated: created_at
+    whenchanged: updated_at
+    department: department
+    company: company
+    streetaddress: streetaddress
+    employeetype: contract
+    info: devserver
+
+  admin_functional_group: "DEV-GROUP"
+
+development:
+ <<: *default        
+
+integration:
+ <<: *default
+
+production:
+ <<: *default
+
+test:
+  ldap_mapping :
+    dn_attribute: uid
+    prefix: ""
+    classes: ["top"]
+
+  ldap_user_wished_fields: 
+    mail: email
+    cn: name
+    givenname: firstname
+    sn: lastname
+    co: country
+    l: location
+    description: description
+    postalcode: postalcode
+    physicaldeliveryofficename: office
+    telephonenumber: phone
+    whencreated: created_at
+    whenchanged: updated_at
+    department: department
+    company: company
+    streetaddress: streetaddress
+    employeetype: contract
+    info: devserver
+
+  admin_functional_group: "DEV-GROUP"

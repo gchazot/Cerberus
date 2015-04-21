@@ -1,0 +1,20 @@
+<div style="padding-top:10px;padding-right:5px;" class="navbar-form pull-right">
+<% if current_user %>
+        <a class="btn dropdown-toggle" data-toggle="dropdown" href="#" id="link_user_name">
+          <i class="icon-<%= current_user.has_a_role_of("admin") ? "wrench" : "user" %>"></i> <%= current_user.name.titleize %>
+          <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu">
+		    <% if current_user.is_admin? -%>	
+		  		<% if !current_user.has_a_role_of("admin") %>
+		  			<li> <%= link_to raw('<i class="icon-wrench"></i> Switch to Admin role'), { :controller => 'oauth', :action => 'be_admin'}, { :id => "link_be_admin"}%></li>
+		  		<% end %>  			
+				<% if !current_user.has_a_role_of("developer") %>
+		  			<li> <%= link_to raw('<i class="icon-user"></i> Switch to Developer role'), { controller: 'oauth', action: 'be_developer'}, { id: "link_be_developer"} %></li>
+		  			<li> <%= link_to raw('<i class="icon-list-alt"></i> List POCs'), { controller: 'oauth_clients', action: 'list_pocs'} %></li>
+		  		<% end %>
+		  	<% end %>	
+		  	<li> <%= link_to raw('<i class="icon-list-alt"></i> Show APIs documentation'), { :controller => 'rest_api', :action => 'index'}, { :id => "link_api_doc"}%></li>
+        </ul>
+<% end %>
+</div>

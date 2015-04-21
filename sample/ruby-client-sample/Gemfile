@@ -1,0 +1,6 @@
+source 'http://rubygems.org'
+
+gem 'oauth2'
+gem 'json'
+gem 'system_timer'
+gem "sinatra"

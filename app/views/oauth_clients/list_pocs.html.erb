@@ -1,0 +1,11 @@
+<h1>List of POCs</h1>
+<br>
+<%=@all_poc_names%>
+<br><br>
+<h2>Details</h2>
+<dl>
+  <% @all_pocs.sort.each do |poc, apps| %>
+  <dt><%=poc%></dt>
+  <dd><font size="-2"><%=apps%></font><dd>
+  <% end %>
+</dl>

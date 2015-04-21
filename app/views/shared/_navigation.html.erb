@@ -1,0 +1,19 @@
+<% page_title = APPLICATION_NAME %>
+<div class="breadcrumb" style="width: 100%;" cellpadding="5px">
+<%= link_to(raw("<i class='icon-home'></i>"), controller: :oauth_clients, action: :index) %>
+<% @breadcrumbs[0..-1].each do |crumb| %>
+	<span class="divider">/</span>
+	<%= link_to crumb[:name], crumb[:url], crumb[:options] %>
+	<% page_title = page_title + " / " +  crumb[:name] %>
+<% end %>
+<!--
+<span class="active">
+<%= link_to @breadcrumbs.last[:name], @breadcrumbs.last[:url], @breadcrumbs.last[:options] %>
+<% #page_title = page_title + " / " +  @breadcrumbs.last[:name] %>
+</span>
+-->	
+</div>
+
+<%= javascript_tag do %>
+	document.title = '<%= page_title %>';
+<% end %>
