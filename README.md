@@ -1,6 +1,6 @@
 #Cerberus
 
-http://cerberus.github.io
+https://amadeusitgroup.github.io/Cerberus/
 
 Cerberus is an authentication server for internal web application.
 It identifies a user using Kerberos (password-less on Windows when using Integrated Authentication).
