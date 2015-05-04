@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Cerberus</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <img src="images/cerberus_logo.png"/>
+        <h1>Cerberus</h1>
+        <p>The Single Sign On solution you'll love</p>
+
+
+        <p class="view"><a href="https://github.com/AmadeusITGroup/Cerberus">GitHub Repository</a></p>
+
+      </header>
+      <section>
+        <h3>
+<a id="welcome-to-cerberus" class="anchor" href="#welcome-to-cerberus" aria-hidden="true"><span class="octicon octicon-link"></span></a>Welcome to Cerberus.</h3>
+
+<p>Cerberus is an application providing an authentication service for people working in your company.
+
+It has been designed following the <a href="http://en.wikipedia.org/wiki/OAuth#OAuth_2.0">OAuth2</a> protocol which allows a client application to authenticate an end-user by simplifying the authentication flow.
+
+In most cases the user does not have to enter his credentials anymore!</p>
+
+<h3>
+<a id="what-is-behind-the-scenes" class="anchor" href="#what-is-behind-the-scenes" aria-hidden="true"><span class="octicon octicon-link"></span></a>What is behind the scenes?</h3>
+
+<p>This application is built using the famous Ruby On Rails framework. The process used is two-fold :
+
+    <ul>
+      <li>The authentication itself, in order to identify you as a person registered in your corporate directory server.</li>
+      <li>Providing your identity (name, email, department, etc...) to the client application using the OAuth2 protocol</li>
+    </ul>
+
+    If you are using Windows and the Cerberus server is configured this way, you can log in without entering any login/password, using the Integrated Authentication feature of your browser (enabled by default on Internet Explorer/Chrome, needs to be enabled explicitely with Firefox).</p>
+
+<h3>
+<a id="the-authentication-process" class="anchor" href="#the-authentication-process" aria-hidden="true"><span class="octicon octicon-link"></span></a>The authentication process</h3>
+<p>
+  <ol>
+    <li>A newcomer in your company, let's call him Cyprien, gets logged on Windows and automatically he obtains a <a href="http://en.wikipedia.org/wiki/Kerberos_(protocol">Kerberos</a> Token from your Authentication Server.</li>
+    <li>He opens his favorite web browser and enters the URL of a client application using Cerberus. He does not know but his personal <a href="http://en.wikipedia.org/wiki/Kerberos_(protocol">Kerberos</a> Token is sent into the http requests. </li>
+    <li>The Client Application transparently redirects Cyprien to Cerberus to request his authentication by forwarding his Kerberos Token. Cerberus will then contact the Authentication Server to find to whom the Kerberos Token is associated. It will then know that the user is Cyprien.</li>
+  </ol>
+</p>
+<h3>
+<a id="providing-the-identity-to-the-client" class="anchor" href="#providing-the-identity-to-the-client" aria-hidden="true"><span class="octicon octicon-link"></span></a>Providing the user identity to the application</h3>
+
+<p>The OAuth 2 authorization framework defines the way how a <b>Client Application</b> and a <b>Service Provider</b> (in our case Cerberus) should communicate together to grant access to user's information. There are four ways of granting access, we use the one called <b>Authorization Code</b>.
+</p>
+
+<p>Some useful definitions first:
+  <ul>
+    <li>The <b>Provider</b> is in charge of authenticating a user, has knowledge of user's information and provides HTTP services giving access to user's details - of course by handling permissions.</li>
+    <li>The <b>Client Application</b> does not want to implement the authentication (login/password) on its side, that's why it will ask to the Provider to do it on its behalf. It will then access to the HTTP services to be able to retrieve user's information.
+    </li>
+  </ul>
+</p>
+
+<p>
+Let's come back to our friend Cyprien.
+</p>
+
+<ol>
+  <li>Once Cyprien has been authenticated by Cerberus, Cerberus generates an <b>Authorization Code</b>. This code is sent back to the <b>Client Application</b> through a callback page that the client application has provided. This code signals to the client application that the user has been successfully authenticated.
+    Usually the client application will require more than that, it needs to know the user name, his e-mail, etc.
+  </li>
+  <li>
+    In order to retrieve additional information, the client application needs an <b>access token</b>, which enables it to use Cerberus services such as getting user information. To get this token, the client application sends back the <b>Authorization Code</b> to Cerberus. Cerberus checks the code validity, then delivers an access token to the client application.
+  </li>
+  <li>
+    The client application can now authenticate to Cerberus and retrieve user information, such as its user name, e-mail, department, etc.
+  </li>
+</ol>
+</p>
+
+<h3>
+<a id="conclusion" class="anchor" href="#conclusion" aria-hidden="true"><span class="octicon octicon-link"></span></a>Conclusion</h3>
+
+<p>Cerberus provides you with an seamless single-sign-on experience, easy to set up and to integrate with your applications.</p>
+      </section>
+      <footer>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
