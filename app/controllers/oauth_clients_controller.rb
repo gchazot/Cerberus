@@ -1,3 +1,5 @@
+require "statsd_manager"
+
 class OauthClientsController < ApplicationController
 
   before_filter :login_required
@@ -45,6 +47,8 @@ class OauthClientsController < ApplicationController
     @client_application = current_user.role.client_applications.build(params[:client_application])
     if @client_application.save
       flash[:notice] = "Registered '#{@client_application.name}' successfully"
+      statsd = StatsManager.new
+      statsd.feedClientApplicationMetric
       redirect_to :action => "show", :id => @client_application.id
     else
       flash.now[:error] = "Registration failed. #{@client_application.errors.full_messages}"
@@ -106,6 +110,8 @@ class OauthClientsController < ApplicationController
   #    
   def destroy
     @client_application.destroy
+    statsd = StatsManager.new
+    statsd.feedClientApplicationMetric
     flash[:notice] = "Destroyed the client application registration"
     redirect_to :action => "index"
   end

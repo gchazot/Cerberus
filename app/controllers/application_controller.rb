@@ -1,3 +1,5 @@
+require "statsd_manager"
+
 class UnauthorizedException < Exception; end
   
 class ApplicationController < ActionController::Base
@@ -41,6 +43,8 @@ class ApplicationController < ActionController::Base
         authenticated_user = User.find_or_create_from_ldap(request.env['REMOTE_USER'])
         if authenticated_user
           session[:user_id] = authenticated_user.id
+          statsd = StatsManager.new
+          statsd.feedLoginMetric(authenticated_user)
         else
           flash[:error] = "User information can not been retrieved. Please contact support team."        
           return false

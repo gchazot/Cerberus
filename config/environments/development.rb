@@ -34,3 +34,7 @@ Provider::Application.configure do
 
 end
 URL_OAUTH2_SERVER = "http://localhost:3000"
+
+STATSD_SERVER_HOST = "localhost"
+STATSD_SERVER_PORT = 8125
+STATSD_KEYPREFIX = "Cerberus"

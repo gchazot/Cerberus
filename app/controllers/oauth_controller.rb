@@ -78,6 +78,9 @@ class OauthController < ApplicationController
           params[:response_type] = "code"
         end
         @authorizer = OAuth::Provider::Authorizer.new current_user, true, params
+        client_application = ClientApplication.find_by_key(params[:client_id])
+        statsd = StatsManager.new
+        statsd.feedAuthorizeMetric(current_user)
         #If this is an auto authentication transparent for end user
         redirect_to @authorizer.redirect_uri
       end
@@ -96,6 +99,9 @@ class OauthController < ApplicationController
           params[:response_type] = "code"
         end
         @authorizer = OAuth::Provider::Authorizer.new current_user, true, params  
+        client_application = ClientApplication.find_by_key(params[:client_id])
+        statsd = StatsManager.new
+        statsd.feedAuthorizeMetric(current_user, client_application)
         render :text => @authorizer.code.token
       end      
 
