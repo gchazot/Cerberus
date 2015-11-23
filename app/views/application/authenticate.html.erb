@@ -21,7 +21,7 @@
     });
 
 var request = $.ajax({
-  url: "/#{BASE_URL}/authenticate_user?<%=@query%>",
+  url: "/<%= "#{BASE_URL}" %>/authenticate_user?<%=@query%>",
   type: "GET",
   dataType: "html"
 });
