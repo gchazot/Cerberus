@@ -38,4 +38,6 @@ Provider::Application.configure do
   config.active_support.deprecation = :stderr
 end
 
+BASE_URL = 'cerberus'
+
 URL_OAUTH2_SERVER="http://localtest:3000/cerberus"

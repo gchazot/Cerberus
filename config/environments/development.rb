@@ -33,6 +33,9 @@ Provider::Application.configure do
   end
 
 end
+
+BASE_URL = 'cerberus-dev'
+
 URL_OAUTH2_SERVER = "http://localhost:3000"
 
 STATSD_SERVER_HOST = "localhost"
