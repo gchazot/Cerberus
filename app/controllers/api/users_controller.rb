@@ -17,7 +17,7 @@ end
  param:: name:string - login or name of the user
  request::
  	/api/users/cnorris.json
- ::request-end:: 
+ ::request-end::
  output:: json
    { "name":"Chuck NORRIS",
      "firstname":"Chuck",
@@ -26,10 +26,10 @@ end
      "email":"cnorris@not-cerberus.com"
  }
  ::output-end::
- 
+
  This service gives all available information on a user specified in parameter
 =end
-  
+
   def user_info
     user = User.find(:first, :conditions => "login = \"#{params[:name]}\" OR name = \"#{params[:name]}\"")
     if user.nil?
@@ -38,8 +38,8 @@ end
     end
     respond_with ({:name => user.name, :firstname => user.firstname, :lastname => user.lastname,:login => user.login, :email => user.email})
   end
-  
-  
+
+
 =begin apidoc?
  url:: /api/users/:name/belongs_to_group.[:format]?group_name=value
  method:: GET
@@ -53,16 +53,16 @@ end
  output:: json
    {"result":false|true}
  ::output-end::
- 
+
  This service indicates if a specified user belongs to a specific group
 =end
-   
+
   def user_belongs_to_group
     user = User.find(:first, :conditions => "login = \"#{params[:name]}\" OR name = \"#{params[:name]}\"")
     if user.nil?
         #Research the user in LDAP If not yet existing in database
         user = User.find_or_create_from_ldap(params[:name])
-    end    
+    end
     if user
         response = params[:group_name].nil? ? false : user.belongs_to_group(params[:group_name])
     else
@@ -78,18 +78,18 @@ end
  return:: [JSON|XML]
  request::
   /api/user/groups.json
- ::request-end::   
+ ::request-end::
  output:: json
    {"groups":["cerberus_USERS","Func-DEV-PSP"]}
  ::output-end::
- 
+
 This service gives the groups of the authenticated user. This request can take several seconds as it needs to find group recursively !
 =end
-       
+
   def user_groups
     user = User.find(:first, :conditions => "login = \"#{params[:name]}\" OR name = \"#{params[:name]}\"")
-    respond_with ({:groups => user.retrieve_groups_from_ldap})    
-  end  
+    respond_with ({:groups => user.retrieve_groups_from_ldap})
+  end
 
 =begin apidoc?
  url:: /api/users/:name/get_devserver.[:format]
@@ -99,19 +99,19 @@ This service gives the groups of the authenticated user. This request can take s
  param:: name:string - login of the user
  request::
  	/api/users/cnorris/get_devserver.json
- ::request-end::  
+ ::request-end::
  output:: json
    {"name":"ncepspdevxx"}
  ::output-end::
- 
+
  This service returns the devserver name associated to a user
-=end     
+=end
   def user_devserver
     user = User.find(:first, :conditions => "login = \"#{params[:name]}\" OR name = \"#{params[:name]}\"")
     if user.nil?
         #Research the user in LDAP If not yet existing in database
         user = User.find_or_create_from_ldap(params[:name])
-    end    
+    end
     if user
         response = user.get_devserver
     else
@@ -127,7 +127,7 @@ This service gives the groups of the authenticated user. This request can take s
      return:: [JSON|XML]
      request::
       /api/users/:name/all_info.json
-     ::request-end::  
+     ::request-end::
      output:: json
       {
         "email": "cnorris@not-cerberus.com",
@@ -146,18 +146,19 @@ This service gives the groups of the authenticated user. This request can take s
         "company": "cerberus sas",
         "streetaddress": "cerberus adress",
         "contract": "CDI"
-      }  
+      }
     ::output-end::
-     
+
      This service gives all available information about the authenticated user
-=end       
+     Information : The response is dependent of the server configuration and can contain more or less information
+=end
       def user_all_info
         user = User.find(:first, :conditions => "login = \"#{params[:name]}\" OR name = \"#{params[:name]}\"")
         if user.nil?
             #Research the user in LDAP If not yet existing in database
             user = User.find_or_create_from_ldap(params[:name])
-        end        
+        end
         respond_with (user.all_info)
-      end   
-        
+      end
+
 end
