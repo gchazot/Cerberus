@@ -44,9 +44,9 @@ GIT
       ntp (>= 0.0.0)
 
 GIT
-  remote: https://github.com/muskox/chef-rbenv
+  remote: https://github.com/gchazot/chef-rbenv
   ref: master
-  sha: 7b1b96356ac61072c1d2c181642f98bb5c09bd7e
+  sha: d537d6a33e336cc038931e7b73a9dae71a18989d
   specs:
     rbenv (0.7.3)
 

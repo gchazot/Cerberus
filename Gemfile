@@ -16,6 +16,7 @@ gem 'rake-compiler'
 gem 'rake', '10.4.2'
 gem 'i18n'
 gem 'statsd-ruby'
+gem 'bundler'
 
 group :assets do
 	gem 'coffee-rails', "3.2.2"

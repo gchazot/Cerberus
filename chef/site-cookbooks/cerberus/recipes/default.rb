@@ -63,9 +63,15 @@ mysql_database_user 'cerberus' do
   action :grant
 end
 
-#execute "bundler-install" do
-#  user "vagrant"
-#  cwd "/vagrant"
-#  command "bundler install"
-#  action :run
-#end
+apt_package 'bundler'
+
+execute 'bundler-install' do
+    user 'vagrant'
+    cwd '/vagrant'
+    environment ({
+        'HOME' => '/home/vagrant',
+        'PATH' => "/home/vagrant/.rbenv/shims:/home/vagrant/.rbenv/bin:#{ENV['PATH']}"
+    })
+    command 'bundle install'
+    action :run
+end

@@ -11,7 +11,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # Configurate the virtual machine to use 2GB of RAM
   config.vm.provider :virtualbox do |vb|
-    vb.customize ["modifyvm", :id, "--memory", "1024"]
+    vb.customize ["modifyvm", :id, "--memory", "2048"]
     vb.customize ["modifyvm", :id, "--ioapic", "on"]
     vb.customize ["modifyvm", :id, "--cpus", "2"]   
   end
@@ -43,11 +43,13 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
           user: 'vagrant',
           rubies: ["2.1.2"],
           global: "2.1.2",
-          #gems: {
-          #  "2.1.2" => [
-          #    { name: "bundler" }
-          #  ]
-          #}
+          gems: {
+            "2.1.2" => [
+              { name: "bundler" },
+              { name: "rake" },
+              { name: "byebug" }
+            ]
+          }
         }]
       },
       krb5: {

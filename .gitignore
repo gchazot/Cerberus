@@ -1,0 +1,5 @@
+.vagrant/
+chef/cookbooks/
+chef/tmp/
+tmp/pids/
+tmp/cache/
