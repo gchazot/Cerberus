@@ -83,12 +83,32 @@ end
    {"groups":["cerberus_USERS","Func-DEV-PSP"]}
  ::output-end::
 
-This service gives the groups of the authenticated user. This request can take several seconds as it needs to find group recursively !
+This service gives the groups of the authenticated user. This request is very fast as it retrieves only the 1st level groups of the user.
 =end
 
   def user_groups
     user = User.find(:first, :conditions => "login = \"#{params[:name]}\" OR name = \"#{params[:name]}\"")
     respond_with ({:groups => user.retrieve_groups_from_ldap})
+  end
+  
+=begin apidoc?
+ url:: /api/users/all_groups.[:format]
+ method:: GET
+ access:: PROTECTED
+ return:: [JSON|XML]
+ request::
+  /api/user/all_groups.json
+ ::request-end::
+ output:: json
+   {"groups":["cerberus_USERS","Func-DEV-PSP"]}
+ ::output-end::
+
+This service gives all the groups of the authenticated user. This request can take several seconds as it needs to find group recursively !
+=end
+
+  def user_all_groups
+    user = User.find(:first, :conditions => "login = \"#{params[:name]}\" OR name = \"#{params[:name]}\"")
+    respond_with ({:groups => user.retrieve_all_groups_from_ldap})
   end
 
 =begin apidoc?

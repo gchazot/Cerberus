@@ -1,7 +1,7 @@
 default: &default
    host: 'localhost'
-      port: 389
-      method: :plain
+    port: 389
+    method: :plain
       base: 'dc=cerberus,dc=com'
       bind_dn: 'CN=admin,dc=cerberus,dc=com'
       password: 'password'

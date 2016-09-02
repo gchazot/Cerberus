@@ -1,9 +1,15 @@
 default: &default
-  ldap_mapping :
+  ldap_mapping_users :
     dn_attribute: samaccountname
     prefix: ""
     classes: ["user"]
+    max_groups_recursion: 6
 
+  ldap_mapping_groups :
+    dn_attribute: cn
+    prefix: ""
+    classes: ["group"]
+  
   ldap_user_wished_fields: 
     mail: email
     cn: name

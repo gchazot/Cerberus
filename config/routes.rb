@@ -15,7 +15,7 @@ Provider::Application.routes.draw do
     match '/oauth/authorize_cli',         :to => 'oauth#authorize_cli',         :as => :authorize_cli
     match '/oauth/authorize_switch_user', :to => 'oauth#authorize_switch_user', :as => :authorize_switch_user
     match '/oauth',                       :to => 'oauth#index',                 :as => :oauth
-    match "/oauth/authenticate",          :to => 'oauth#authorize',             :as => :authorize
+    match '/oauth/authenticate',          :to => 'oauth#authorize',             :as => :authorize
   
     #Jenkins routes
     match '/login/oauth/authorize',     :to => 'oauth#authorize',     :as => :authorize
@@ -45,6 +45,7 @@ Provider::Application.routes.draw do
       match "user.login"                   => "user#login"
       match "user.email"                   => "user#email"
       match "user.groups"                  => "user#groups"
+      match "user.all_groups"              => "user#all_groups"
       match "user.firstname"               => "user#firstname"
       match "user.lastname"                => "user#lastname"
       match "user.belongs_to_group"        => "user#belongs_to_group"
@@ -54,6 +55,7 @@ Provider::Application.routes.draw do
       match "users/:name/get_devserver"    => "users#user_devserver", :name => name_regex, :format => /json|xml|yaml/
       match "users/:name/all_info"         => "users#user_all_info", :name => name_regex, :format => /json|xml|yaml/
       match "users/:name/groups"           => "users#user_groups", :name => name_regex, :format => /json|xml|yaml/
+      match "users/:name/all_groups"       => "users#user_all_groups", :name => name_regex, :format => /json|xml|yaml/
     end
  
     match "/check" => "application#check"

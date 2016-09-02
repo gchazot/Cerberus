@@ -13,9 +13,18 @@ class User < ActiveRecord::Base
   # * *Returns* :
   #   - ["group1","group2",...]
   #  
-
   def retrieve_groups_from_ldap
     LdapUser.retrieve_groups self.login
+  end
+  # Call to LdapUser class to recursively retrieve all groups the user belongs to
+  #
+  # * *Args*    :
+  #   - None
+  # * *Returns* :
+  #   - ["group1","group2",...]
+  #  
+  def retrieve_all_groups_from_ldap
+    LdapUser.retrieve_all_groups self.login
   end
   # Check if the user belongs to a specific group requesting it to Ldap
   #

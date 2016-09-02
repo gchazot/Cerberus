@@ -137,10 +137,28 @@ This service gives the lastname of the authenticated user
    {"groups":["cerberus_USERS","Func-DEV-PSP"]}
  ::output-end::
 
-This service gives the groups of the authenticated user. This request can take several seconds as it needs to find group recursively !
+This service gives the groups of the authenticated user. This request is very fast as it retrieves only the 1st level groups of the user.
 =end
   def groups
     respond_with ({:groups => @user.retrieve_groups_from_ldap})
+  end
+
+=begin apidoc?
+ url:: /api/user.all_groups.[:format]
+ method:: GET
+ access:: PROTECTED
+ return:: [JSON|XML]
+ request::
+ 	/api/user.all_groups.json?access_token=your_personal_access_token
+ ::request-end::
+ output:: json
+   {"groups":["cerberus_USERS","Func-DEV-PSP"]}
+ ::output-end::
+
+This service gives the groups of the authenticated user. This request can take several seconds as it needs to find group recursively !
+=end  
+  def all_groups
+    respond_with ({:groups => @user.retrieve_all_groups_from_ldap})
   end
 
 =begin apidoc?

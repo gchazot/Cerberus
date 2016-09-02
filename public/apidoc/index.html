@@ -11,7 +11,7 @@
       <span class='active' id='app-name'>
         <a href='#'>API Doc</a>
       </span>
-      <span id='api-version'>Updated at: 2015-04-21 16:26:19 UTC</span>
+      <span id='api-version'>Updated at: 2016-09-02 13:01:14 UTC</span>
     </div>
     <div class='clearfix' id='wrapper'>
       <div class='blue' id='resource_index'>
@@ -79,13 +79,20 @@
               <li>
                 <span class='api-endpoint-container'>
                   <a class='api-endpoint' href='#api/user_method_8'>
-                    /api/user.belongs_to_group.[:format]?group_name=value
+                    /api/user.all_groups.[:format]
                   </a>
                 </span>
               </li>
               <li>
                 <span class='api-endpoint-container'>
                   <a class='api-endpoint' href='#api/user_method_9'>
+                    /api/user.belongs_to_group.[:format]?group_name=value
+                  </a>
+                </span>
+              </li>
+              <li>
+                <span class='api-endpoint-container'>
+                  <a class='api-endpoint' href='#api/user_method_10'>
                     /api/user.all_info.[:format]
                   </a>
                 </span>
@@ -121,13 +128,20 @@
               <li>
                 <span class='api-endpoint-container'>
                   <a class='api-endpoint' href='#api/users_method_4'>
-                    /api/users/:name/get_devserver.[:format]
+                    /api/users/all_groups.[:format]
                   </a>
                 </span>
               </li>
               <li>
                 <span class='api-endpoint-container'>
                   <a class='api-endpoint' href='#api/users_method_5'>
+                    /api/users/:name/get_devserver.[:format]
+                  </a>
+                </span>
+              </li>
+              <li>
+                <span class='api-endpoint-container'>
+                  <a class='api-endpoint' href='#api/users_method_6'>
                     /api/users/:name/all_info.[:format]
                   </a>
                 </span>
@@ -344,7 +358,7 @@
             <h2 class='api-url blue'>GET /api/user.groups.[:format]</h2>
             <p class='description'>
               <strong>Description:</strong>
-              This service gives the groups of the authenticated user. This request can take several seconds as it needs to find group recursively !
+              This service gives the groups of the authenticated user. This request is very fast as it retrieves only the 1st level groups of the user.
             </p>
             <strong>Access:</strong>
             PROTECTED
@@ -374,6 +388,39 @@
           <div class='resource_methods'>
             <a id='api/user_method_8'></a>
             <h2 class='api-name'></h2>
+            <h2 class='api-url blue'>GET /api/user.all_groups.[:format]</h2>
+            <p class='description'>
+              <strong>Description:</strong>
+              This service gives the groups of the authenticated user. This request can take several seconds as it needs to find group recursively !
+            </p>
+            <strong>Access:</strong>
+            PROTECTED
+            <br>
+            <strong>Return:</strong>
+            [JSON|XML]
+            <br>
+            <strong>Parameters:</strong>
+            <ul>
+            </ul>
+            <strong>Request:</strong>
+            <pre>/api/user.all_groups.json?access_token=your_personal_access_token</pre>
+            <strong>Response Output:</strong>
+            <ul class='output_format'>
+              <li class='json output-format'>
+                <a href='#api/user_json_8'>json</a>
+              </li>
+            </ul>
+            <div class='output'>
+              <div class='json'>
+                <a id='api/user_json_8'></a>
+                <pre class='prettyprint'>{&quot;groups&quot;:[&quot;cerberus_USERS&quot;,&quot;Func-DEV-PSP&quot;]}</pre>
+              </div>
+            </div>
+            <br>
+          </div>
+          <div class='resource_methods'>
+            <a id='api/user_method_9'></a>
+            <h2 class='api-name'></h2>
             <h2 class='api-url blue'>GET /api/user.belongs_to_group.[:format]?group_name=value</h2>
             <p class='description'>
               <strong>Description:</strong>
@@ -394,24 +441,24 @@
             <strong>Response Output:</strong>
             <ul class='output_format'>
               <li class='json output-format'>
-                <a href='#api/user_json_8'>json</a>
+                <a href='#api/user_json_9'>json</a>
               </li>
             </ul>
             <div class='output'>
               <div class='json'>
-                <a id='api/user_json_8'></a>
+                <a id='api/user_json_9'></a>
                 <pre class='prettyprint'>{&quot;result&quot;:true}</pre>
               </div>
             </div>
             <br>
           </div>
           <div class='resource_methods'>
-            <a id='api/user_method_9'></a>
+            <a id='api/user_method_10'></a>
             <h2 class='api-name'></h2>
             <h2 class='api-url blue'>GET /api/user.all_info.[:format]</h2>
             <p class='description'>
               <strong>Description:</strong>
-              This service gives all available information about the authenticated user
+              This service gives all available information about the authenticated userInformation : The response is dependent of the server configuration and can contain more or less information
             </p>
             <strong>Access:</strong>
             PROTECTED
@@ -427,12 +474,12 @@
             <strong>Response Output:</strong>
             <ul class='output_format'>
               <li class='json output-format'>
-                <a href='#api/user_json_9'>json</a>
+                <a href='#api/user_json_10'>json</a>
               </li>
             </ul>
             <div class='output'>
               <div class='json'>
-                <a id='api/user_json_9'></a>
+                <a id='api/user_json_10'></a>
                 <pre class='prettyprint'>{&quot;email&quot;: &quot;cnorris@not-cerberus.com&quot;,&quot;name&quot;: &quot;Chuck NORRIS&quot;,&quot;firstname&quot;: &quot;Chuck&quot;,&quot;lastname&quot;: &quot;Norris&quot;,&quot;country&quot;: &quot;France&quot;,&quot;location&quot;: &quot;City&quot;,&quot;description&quot;: &quot;Dev. &amp; Tools Environment&quot;,&quot;postalcode&quot;: &quot;01111&quot;,&quot;office&quot;: &quot;VB112&quot;,&quot;phone&quot;: &quot;+33 1 2345 6789&quot;,&quot;created_at&quot;: &quot;20121026141649.0Z&quot;,&quot;updated_at&quot;: &quot;20130801061114.0Z&quot;,&quot;department&quot;: &quot;R&amp;D-CERBERUS&quot;,&quot;company&quot;: &quot;cerberus sas&quot;,&quot;streetaddress&quot;: &quot;cerberus adress&quot;,&quot;contract&quot;: &quot;CDI&quot;}</pre>
               </div>
             </div>
@@ -517,7 +564,7 @@
             <h2 class='api-url blue'>GET /api/users/groups.[:format]</h2>
             <p class='description'>
               <strong>Description:</strong>
-              This service gives the groups of the authenticated user. This request can take several seconds as it needs to find group recursively !
+              This service gives the groups of the authenticated user. This request is very fast as it retrieves only the 1st level groups of the user.
             </p>
             <strong>Access:</strong>
             PROTECTED
@@ -547,6 +594,39 @@
           <div class='resource_methods'>
             <a id='api/users_method_4'></a>
             <h2 class='api-name'></h2>
+            <h2 class='api-url blue'>GET /api/users/all_groups.[:format]</h2>
+            <p class='description'>
+              <strong>Description:</strong>
+              This service gives all the groups of the authenticated user. This request can take several seconds as it needs to find group recursively !
+            </p>
+            <strong>Access:</strong>
+            PROTECTED
+            <br>
+            <strong>Return:</strong>
+            [JSON|XML]
+            <br>
+            <strong>Parameters:</strong>
+            <ul>
+            </ul>
+            <strong>Request:</strong>
+            <pre>/api/user/all_groups.json</pre>
+            <strong>Response Output:</strong>
+            <ul class='output_format'>
+              <li class='json output-format'>
+                <a href='#api/users_json_4'>json</a>
+              </li>
+            </ul>
+            <div class='output'>
+              <div class='json'>
+                <a id='api/users_json_4'></a>
+                <pre class='prettyprint'>{&quot;groups&quot;:[&quot;cerberus_USERS&quot;,&quot;Func-DEV-PSP&quot;]}</pre>
+              </div>
+            </div>
+            <br>
+          </div>
+          <div class='resource_methods'>
+            <a id='api/users_method_5'></a>
+            <h2 class='api-name'></h2>
             <h2 class='api-url blue'>GET /api/users/:name/get_devserver.[:format]</h2>
             <p class='description'>
               <strong>Description:</strong>
@@ -567,24 +647,24 @@
             <strong>Response Output:</strong>
             <ul class='output_format'>
               <li class='json output-format'>
-                <a href='#api/users_json_4'>json</a>
+                <a href='#api/users_json_5'>json</a>
               </li>
             </ul>
             <div class='output'>
               <div class='json'>
-                <a id='api/users_json_4'></a>
+                <a id='api/users_json_5'></a>
                 <pre class='prettyprint'>{&quot;name&quot;:&quot;ncepspdevxx&quot;}</pre>
               </div>
             </div>
             <br>
           </div>
           <div class='resource_methods'>
-            <a id='api/users_method_5'></a>
+            <a id='api/users_method_6'></a>
             <h2 class='api-name'></h2>
             <h2 class='api-url blue'>GET /api/users/:name/all_info.[:format]</h2>
             <p class='description'>
               <strong>Description:</strong>
-              This service gives all available information about the authenticated user
+              This service gives all available information about the authenticated userInformation : The response is dependent of the server configuration and can contain more or less information
             </p>
             <strong>Access:</strong>
             PROTECTED
@@ -600,12 +680,12 @@
             <strong>Response Output:</strong>
             <ul class='output_format'>
               <li class='json output-format'>
-                <a href='#api/users_json_5'>json</a>
+                <a href='#api/users_json_6'>json</a>
               </li>
             </ul>
             <div class='output'>
               <div class='json'>
-                <a id='api/users_json_5'></a>
+                <a id='api/users_json_6'></a>
                 <pre class='prettyprint'>{&quot;email&quot;: &quot;cnorris@not-cerberus.com&quot;,&quot;name&quot;: &quot;Chuck NORRIS&quot;,&quot;firstname&quot;: &quot;Chuck&quot;,&quot;lastname&quot;: &quot;Norris&quot;,&quot;country&quot;: &quot;France&quot;,&quot;location&quot;: &quot;City&quot;,&quot;description&quot;: &quot;Dev. &amp; Tools Environment&quot;,&quot;postalcode&quot;: &quot;01111&quot;,&quot;office&quot;: &quot;VB112&quot;,&quot;phone&quot;: &quot;+33 1 2345 6789&quot;,&quot;created_at&quot;: &quot;20121026141649.0Z&quot;,&quot;updated_at&quot;: &quot;20130801061114.0Z&quot;,&quot;department&quot;: &quot;R&amp;D-CERBERUS&quot;,&quot;company&quot;: &quot;cerberus sas&quot;,&quot;streetaddress&quot;: &quot;cerberus adress&quot;,&quot;contract&quot;: &quot;CDI&quot;}</pre>
               </div>
             </div>
